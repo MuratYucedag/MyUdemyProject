@@ -1,0 +1,75 @@
+﻿@model CreateSendMessage
+@{
+    ViewData["Title"] = "AddSendMessage";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<div class="email-left-box">
+    <a href="email-compose.html" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+    @await Html.PartialAsync("SideBarAdminContactPartial")
+    <h5 class="mt-5 m-b-10">Categories</h5>
+    @await Html.PartialAsync("SideBarAdminContactCategoryPartial")
+</div>
+<div class="email-right-box">
+    <div class="toolbar" role="toolbar">
+        <div class="btn-group m-b-20">
+            <button type="button" class="btn btn-light">
+                <i class="fa fa-archive"></i>
+            </button>
+            <button type="button" class="btn btn-light">
+                <i class="fa fa-exclamation-circle"></i>
+            </button>
+            <button type="button" class="btn btn-light">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+        <div class="btn-group m-b-20">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-folder"></i>  <b class="caret m-l-5"></b>
+            </button>
+            <div class="dropdown-menu">
+                <span class="dropdown-header">Taşı</span>  <a class="dropdown-item" href="javascript: void(0);">Social</a>  <a class="dropdown-item" href="javascript: void(0);">Promosyon</a>  <a class="dropdown-item" href="javascript: void(0);">Güncellem</a>
+                <a class="dropdown-item" href="javascript: void(0);">Forum</a>
+            </div>
+        </div>
+        <div class="btn-group m-b-20">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-tag"></i>  <b class="caret m-l-5"></b>
+            </button>
+            <div class="dropdown-menu">
+                <span class="dropdown-header">Kategoriler:</span>  <a class="dropdown-item" href="javascript: void(0);">Updates</a>  <a class="dropdown-item" href="javascript: void(0);">Sosyak</a>  <a class="dropdown-item" href="javascript: void(0);">Promosyon</a>
+                <a class="dropdown-item" href="javascript: void(0);">Forum</a>
+            </div>
+        </div>
+        <div class="btn-group m-b-20">
+            <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                Daha Fazla <span class="caret m-l-5"></span>
+            </button>
+            <div class="dropdown-menu">
+                <span class="dropdown-header">More Option :</span>  <a class="dropdown-item" href="javascript: void(0);">Mark as Unread</a>  <a class="dropdown-item" href="javascript: void(0);">Add to Tasks</a>  <a class="dropdown-item"
+                                                                                                                                                                                                                       href="javascript: void(0);">Add Star</a>  <a class="dropdown-item" href="javascript: void(0);">Mute</a>
+            </div>
+        </div>
+    </div>
+    <div class="compose-content mt-5">
+        <form method="post">
+            <div class="form-group">
+                <input type="text" class="form-control bg-transparent" asp-for="ReceiverMail" placeholder=" Alıcı Mail Adresi">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control bg-transparent" asp-for="Title" placeholder=" Konu">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control bg-transparent" asp-for="ReceiverName" placeholder=" Alıcı Adı Soyadı">
+            </div>
+            <div class="form-group">
+                <textarea class="textarea_editor form-control bg-light" rows="15" placeholder="Mesajınızı Yazınız..." asp-for="Content"></textarea>
+            </div>
+
+            <div class="text-left m-t-15">
+                <button class="btn btn-primary m-b-30 m-t-15 f-s-14 p-l-20 p-r-20 m-r-10"><i class="fa fa-paper-plane m-r-5"></i> Gönder</button>
+            </div>
+        </form>
+    </div>
+</div>

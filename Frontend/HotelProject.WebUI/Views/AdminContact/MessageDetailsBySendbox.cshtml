@@ -1,0 +1,45 @@
+﻿@model GetMessageByIDDto
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="email-left-box">
+    <a href="/AdminContact/AddSendMessage/" class="btn btn-primary btn-block">Yeni Mesaj Oluştur</a>
+    @await Html.PartialAsync("SideBarAdminContactPartial")
+    <h5 class="mt-5 m-b-10">Kategoriler</h5>
+    @await Html.PartialAsync("SideBarAdminContactCategoryPartial")
+</div>
+<div class="email-right-box">
+    <div role="toolbar" class="toolbar">
+        <div class="btn-group">
+            <button aria-expanded="false" data-toggle="dropdown" class="btn btn-dark dropdown-toggle" type="button">
+                Gelen Mesajlar <span class="caret m-l-5"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="read-content">
+        <div class="media pt-5">
+            <img class="mr-3 rounded-circle" src="~/adminweb/images/avatar/1.jpg">
+            <div class="media-body">
+                <h5 class="m-b-3">@Model.ReceiverName</h5>
+                <p class="m-b-2">@(((DateTime)Model.Date).ToString("dd-MMM-yyyy"))</p>
+            </div>
+
+        </div>
+        <hr>
+        <div class="media mb-4 mt-1">
+            <div class="media-body">
+                <h4 class="m-0 text-primary">@Model.Title</h4><small class="text-muted">Kime:@Model.ReceiverMail</small>
+            </div>
+        </div>
+        <p>@Model.Content</p>
+        <hr>
+        <div class="form-group p-t-15">
+            <textarea class="w-100 p-20 l-border-1" name="" id="" cols="30" rows="5" placeholder="It's really an amazing.I want to know more about it..!"></textarea>
+        </div>
+    </div>
+
+</div>
+
