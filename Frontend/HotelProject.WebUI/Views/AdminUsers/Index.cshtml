@@ -1,0 +1,31 @@
+﻿@model List<HotelProject.EntityLayer.Concrete.AppUser>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-xs mb-0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ad Soyad</th>
+            <th>Şehir</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><img src="@item.ImageUrl" class=" rounded-circle mr-3" alt=""></td>
+                <td>@item.Name @item.Surname</td>
+                <td>@item.City</td>
+                <td><i class="fa fa-circle-o text-success  mr-2"></i> Aktif</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Register/Index/" class="btn btn-primary">Yeni Kullanıcı Kaydı</a>

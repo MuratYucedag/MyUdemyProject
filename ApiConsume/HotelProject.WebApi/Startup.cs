@@ -62,9 +62,18 @@ namespace HotelProject.WebApi
             services.AddScoped<ISendMessageDal, EfSendMessageDal>();
             services.AddScoped<ISendMessageService, SendMessageManager>();
 
+            services.AddScoped<IMessageCategoryDal, EfMessageCategoryDal>();
+            services.AddScoped<IMessageCategoryService, MessageCategoryManager>();
+
+            services.AddScoped<IWorkLocationDal, EfWorkLocationDal>();
+            services.AddScoped<IWorkLocationService, WorkLocationManager>();
+
+            services.AddScoped<IAppUserDal, EfAppUserDal>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+
             services.AddAutoMapper(typeof(Startup));
 
-           // services.AddScoped
+            // services.AddScoped
 
             services.AddCors(opt =>
             {
@@ -90,8 +99,8 @@ namespace HotelProject.WebApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HotelProject.WebApi v1"));
             }
-
             app.UseRouting();
+            app.UseStaticFiles();
             app.UseCors("OtelApiCors");
             app.UseAuthorization();
 
