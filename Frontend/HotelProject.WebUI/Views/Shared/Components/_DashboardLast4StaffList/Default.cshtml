@@ -1,0 +1,17 @@
+﻿@model List<HotelProject.WebUI.Dtos.StaffDto.ResultLast4StaffDto>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="@item.SocialMedia1" class="rounded-circle" width="110" height="110" alt="">
+                        <h5 class="mt-3 mb-1">@item.Name</h5>
+                        <p class="m-0">@item.Title</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,79 @@
+﻿@model List<HotelProject.WebUI.Dtos.BookingDto.ResultLast6BookingDto>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="active-member">
+                    <div class="table-responsive">
+                        <table class="table table-xs mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Müşteri</th>
+                                    <th>Şehir</th>
+                                    <th>Ülke</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.City</td>
+                                    <td>
+                                        <span>@item.Country</span>
+                                    </td>
+                                    @if (item.Status == "Onaylandı")
+                                    {
+                                        <td>
+                                            <div>
+                                                <div class="progress" style="height: 6px">
+                                                    <div class="progress-bar bg-success" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-circle-o text-success  mr-2"></i> @item.Status</td>
+                                    }
+                                    @if (item.Status == "Müşteri Aranacak")
+                                    {
+                                        <td>
+                                            <div>
+                                                <div class="progress" style="height: 6px">
+                                                    <div class="progress-bar bg-warning" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-circle-o text-warning  mr-2"></i> @item.Status</td>
+                                    }
+                                    @if (item.Status == "İptal Edildi")
+                                    {
+                                        <td>
+                                            <div>
+                                                <div class="progress" style="height: 6px">
+                                                    <div class="progress-bar bg-danger" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-circle-o text-danger  mr-2"></i> @item.Status</td>
+                                    }
+                                    @if (item.Status == "Onay Bekliyor")
+                                    {
+                                        <td>
+                                            <div>
+                                                <div class="progress" style="height: 6px">
+                                                    <div class="progress-bar bg-info" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><i class="fa fa-circle-o text-info  mr-2"></i> @item.Status</td>
+                                    }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
